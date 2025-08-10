@@ -1,0 +1,66 @@
+/*
+เขียนฟังก์ชัน removeDuplicates(arr) ที่รับพารามิเตอร์เป็นอาเรย์ของตัวเลข arr
+ฟังก์ชันจะต้องคืนอาเรย์ใหม่ที่ ตัดเลขที่ซ้ำออก โดยเลขแต่ละตัวจะเก็บไว้แค่ครั้งแรกที่เจอเท่านั้น และรักษาลำดับเดิมตามในอาเรย์ต้นฉบับ
+
+ตัวอย่าง
+removeDuplicates([1, 2, 2, 3, 4, 3, 5]);
+// คืนค่า [1, 2, 3, 4, 5]
+
+removeDuplicates([7, 7, 7, 7]);
+// คืนค่า [7]
+
+removeDuplicates([5, 3, 4, 5, 3, 1]);
+// คืนค่า [5, 3, 4, 1]
+*/
+function removeDuplicates(arr) {
+  const result = []; // เก็บ result 
+
+  for (let i = 0; i < arr.length; i++) { // วนลูป arr
+    if (result.indexOf(arr[i]) === -1) { // เอา arr[i] ไป check ค่า แล้วหาว่ามีใน array นี้ไหม ถ้าไม่มีก็คืนค่าเป็น-1
+      result.push(arr[i]); //  push เข้า result ไป
+    }
+  }
+
+  return result;
+}
+console.log(removeDuplicates([1, 2, 2, 3, 4, 3, 5]));
+
+
+console.log("----------------------------------")
+
+function removeDuplicatesIgnoreCase(arr) {
+  const seen = new Set(); // set คือ จำไว้ ใช้ร่วมกับ add ในการไม่จดคนซ้ำ 
+  const result = [];
+
+  for (const word of arr) { //ลูป 
+    const w = word.trim().toLowerCase(); // ลูปให้แปลงเป็นตัวเล็ก ไม่มีช่องว่างทุกคำในarray 
+    if (!seen.has(w)) {      // ถ้ายังไม่เคยเจอ
+      seen.add(w);         // จดชื่อไว้ เพื่อไม่ให้จดซ้ำ
+      result.push(word); // push ใส่เข้าไปใน result
+    }
+  }
+  return result; // return ออกมา
+}
+
+console.log(removeDuplicatesIgnoreCase(["Apple", "apple", "Banana", "banana"]));
+
+console.log("----------------------------------")
+function removeDuplicatesIgnoreCase(arr) {
+  const result = [];
+
+  for (const word of arr) {
+    const w = word.trim().toLowerCase(); // ลูปให้แปลงเป็นตัวเล็ก ไม่มีช่องว่างทุกคำในarrayคับ
+    if (!result.some(item => item.trim().toLowerCase() === w)) {  // check ว่ามีคำนี้มาแล้วหรึยัง
+      result.push(word); // ยังไม่ซ้ำ ก็ push เข้าไป 
+    } // ถ้าซ้ำก็ไม่ push เข้าไป 
+  }
+
+  return result;
+}
+
+console.log(removeDuplicatesIgnoreCase([" Apple ", "apple", "Banana", "banana", "APPLE", "Orange"]));
+
+
+// ใช้ some ไล่เช็คใน result ทุกครั้ง  ถ้าข้อมูลเยอะ จะช้ากว่า Set 
+// chatgpt แนะนำมาว่า  ถ้า data เยอะ Set จะเร็วกว่า เพราะ some ต้องไล่เช็ค ที่ละตัว
+// เขียนอธิบาย กระชับๆ สั้นแบบผมเองคับ ภคิน ตั้งเสถียรกิจ 67130500027
