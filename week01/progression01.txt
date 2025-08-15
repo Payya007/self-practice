@@ -64,3 +64,4 @@ console.log(removeDuplicatesIgnoreCase([" Apple ", "apple", "Banana", "banana", 
 // ใช้ some ไล่เช็คใน result ทุกครั้ง  ถ้าข้อมูลเยอะ จะช้ากว่า Set 
 // chatgpt แนะนำมาว่า  ถ้า data เยอะ Set จะเร็วกว่า เพราะ some ต้องไล่เช็ค ที่ละตัว
 // เขียนอธิบาย กระชับๆ สั้นแบบผมเองคับ ภคิน ตั้งเสถียรกิจ 67130500027
+// เรียนการ loop เรื่อง array ใช้คำสั่ง trim,toLowerCase การใช้ some , Set , has ,add 
