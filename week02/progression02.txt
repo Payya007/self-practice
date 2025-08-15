@@ -1,0 +1,51 @@
+// Shallow Equality
+let book1 = {
+    isbn: 123456789,
+    title: "JavaScript",
+};
+
+let book2 = {
+    isbn: 123456789,
+    title: "JavaScript",
+};
+
+function shallowEquality(object1, object2) {
+    const keys1 = Object.keys(object1); // ดึง แค่ key ออกมา ["isbn" , "title"] ออกมาเป็น array
+    const keys2 = Object.keys(object2); // ดึง แค่ key ออกมา ["isbn" , "title"] ออกมาเป็น array
+
+    if (keys1.length !== keys2.length) { // ดัก check lenght ก่อนเลย ถ้าไม่ตรง ก็คือไม่ใช่ละ พื่อประหยัดเวลาและหยุดทันทีถ้าข้อมูลไม่ตรงกัน
+        return false; 
+    }
+
+    for (let key of keys1) { // loop key  
+        if (object1[key] !== object2[key]) { // คือ  key มันเหมือนกันอยู๋แล้ว แล้วก็เอามาเทียบ value ว่าตรงกันไหม
+            return false;
+        }
+    }
+
+    return true; // ถ้าใช่ ถูก ก็ return ออกมา
+} 
+
+console.log("shallow equality: " + shallowEquality(book1, book2)); // true
+//Shallow Equality คือ การกรองขั้นแรกว่า obj มันตรงกันไหม
+
+
+function sumSalesByCategory(data) {
+  const result = {}; // สร้างObject ว่าง 
+
+  for (const item of data)  { // loop ของ array data
+    const { category , sales } = item; // ดึงค่าจาก item ด้วยการ destructuring
+
+   if (result[category] == undefined){ // ถ้ายังไม่มี ให้  ตั้งค่า = sales
+   result[category] = sales;
+   sales=0;
+  }
+
+  else{
+    result[category] =result[category] + sales;// ถ้ามีหมวดนี้อยู่แล้ว ให้ บวกยอดขายเพิ่มเข้าไป
+  }
+
+  return result;
+}}
+// ได้รูํเรื่องการเรียก data ใน Object ให้กระจ่างขึ้น
+ // อธิบายโดย ผมเอง ภคิน ตั้งเสถียรกิจ 67130500027 
