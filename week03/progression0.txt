@@ -1,0 +1,56 @@
+function getFreqOfWords(setence){
+
+     let word = setence.toLowerCase().split(" ") // ทำให้คำแยกกัน ทำให้เป็นตัวเล็ก
+     let obj={}
+     for (let i=0; i< word.length; i++) // วนลูป i
+     {
+        //[today ,is,present,and,present,is,your,gift]
+        console.log(word[i])
+        if(obj[word[i]]){ // มันจะจำแล้วเทียบให้เลย
+           obj[word[i]]+=1 // ถ้าใช่ก็ บวกค่าไป 1 
+        }
+        else {
+            obj[word[i]]=1 ถ้าไม่ก็ =1 
+        }
+     }
+     return obj
+
+}
+console.log(getFreqOfWords('Today is present and present is your gift'))
+
+// ตอนแรกทำใน class แล้ว งง ลำดับโลจิก ออกแต่ไม่รู้ต้องเขียนยังไง
+// แต่พอดูเพื่อนแล้วก็มาลองเขียนเองก็เข้าใจมากขึ้น
+
+function sum(...a) { // รับกี่ตัวก็ได้ เป็น array
+let result = 0
+for (let i of arguments) { // ลูป 
+  result = result + i // ให้มันบวกกันไปเรื่อยๆ
+}
+return result // return ผลลัพธ์ออกมา
+}
+console.log(sum())
+console.log(sum(1))
+console.log(sum(1,2))
+console.log(sum(1,2,3,5))
+
+function countFrequency(...args) {
+  return args.reduce((acc, cur) => { // acc = accumulator (object ที่เอาไว้เก็บผลลัพธ์สะสม)
+    // cur = ค่าที่กำลังลูปอยู่ใน args 
+
+    if (acc[cur] === undefined) { // ยังไม่เคยมีค่า 
+      
+      acc[cur] = 1          // ใส่ค่าเริ่มต้นเป็น 1
+    } else {
+      acc[cur] = acc[cur] + 1 // ถ้ามีอยู่แล้ว  บวกเพิ่ม 1
+    }
+
+    return acc // ต้อง return acc กลับทุกครั้ง 
+  }, {}) 
+  // {} = ค่าเริ่มต้นของ acc (object ว่าง)
+}
+
+console.log(countFrequency("a", "b", "a", "c", "b", "a"))
+// { a: 3, b: 2, c: 1 }
+
+// สรุปโดยผมเองครับ พยายามฝึกโจทย์แนว object อยู่ครับ
+// ภคิน ตั้งเสถียรกิจ 67130500027
