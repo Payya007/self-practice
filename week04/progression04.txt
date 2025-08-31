@@ -1,0 +1,50 @@
+const employees = [
+  {
+    id: "e1001",
+    firstname: "Somchai",
+    lastname: "Jaidee",
+  },
+  {
+    id: "e1002",
+    firstname: "Pornchai",
+    lastname: "Deejai",
+  },
+  {
+    id: "e1005",
+    firstname: "Suda",
+    lastname: "Rakdee",
+  },
+]
+ 
+
+ 
+const fullname = employees.map(emp =>  emp.firstname + " " + emp.lastname )
+console.log(fullname)  
+const result = fullname.filter(name => {
+  name.toLowerCase().includes("jai") , 
+  console.log(name)
+})
+
+// ถ้าใช้ fullname จะได้ array เดิม
+// ถ้าใช้ name จะได้ชื่อที่ละคน
+//เวลาเราใช้ map, filter, forEach อะไรก็ตาม → callback function จะถูกเรียกทีละ element ของ array
+//ตัวแปรที่เราใส่ใน parameter (emp, name, item อะไรก็ได้) จะหมายถึง element ปัจจุบันในรอบนั้น
+// 2 บรรทัดสุดท้าย ให้ chat ขยายความอีกที
+
+
+console.log(result1)
+console.log("-------------")
+const carts = [
+  { productId: 1002, price: 10, amount: 5 },
+  { productId: 2005, price: 100, amount: 2 },
+  { productId: 5001, price: 5, amount: 4 },
+]
+//net price = total price * VAT 7%
+let total = 0 ;
+const result2  = carts.reduce((total ,product )=>  total + product.price * product.amount ,0); // ต้องมี total มันเก็บค่ารวม ที่บวกแต่ละเเถว
+console.log(result2)
+const netPrice = result2 * 1.07 ; // เอามาคูณ vat
+console.log(netPrice)
+//ในห้อง ยังสับสน เลยทำใหม่อีกรอบ โดยทำเอง ไม่ได้ดูเฉลย
+// product.price เวลา . เข้าไป ก็เข้าไปหา สี่ง นั้นเลย 
+// สิ่งที่ผมสับสนมันคือ syntax เข้าใจ logic ว่ามันต้อง return แต่เจอ แบบ ถ้า reduce ใส่ {} ต้อง return เอง ก็สับสนบ้าง 
