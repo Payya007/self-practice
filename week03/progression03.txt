@@ -31,7 +31,7 @@ return result // return ผลลัพธ์ออกมา
 console.log(sum())
 console.log(sum(1))
 console.log(sum(1,2))
-console.log(sum(1,2,3,5))
+console.log(sum(1,2,3,5)) // log ออกมาดู 
 
 function countFrequency(...args) {
   return args.reduce((acc, cur) => { // acc = accumulator (object ที่เอาไว้เก็บผลลัพธ์สะสม)
@@ -53,4 +53,4 @@ console.log(countFrequency("a", "b", "a", "c", "b", "a"))
 // { a: 3, b: 2, c: 1 }
 
 // สรุปโดยผมเองครับ พยายามฝึกโจทย์แนว object อยู่ครับ
-// ภคิน ตั้งเสถียรกิจ 67130500027
+// ภคิน ตั้งเสถียรกิจ 67130500027 
