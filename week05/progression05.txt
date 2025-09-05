@@ -1,0 +1,66 @@
+สรุป 
+filter - ใช้ กรอง ข้อมูลในอาร์เรย์ โดย เก็บเฉพาะค่าที่ตรงตามเงื่อนไข
+ array.filter((item, index, array) => {
+  return เงื่อนไข; // ต้อง return true หรือ false
+}); // returnค่าไม่ได้ ต้องเก็บในตัวแปร เท่านั้น  
+เช่น const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(n => n % 2 === 0);
+console.log(evenNumbers);
+ 
+reduce - ใช้รวมค่า 
+array.reduce((accumulator, currentValue, index, array) => {
+  return ค่าใหม่ของ accumulator;
+}, ค่าเริ่มต้นของ accumulator);
+// เวลาใช้ต้องมีตัวแปรมาเก็บ เสมอๆ 
+เช่น 
+const numbers = [1, 2, 3, 4, 5];
+const total = numbers.reduce((sum, n) => sum + n, 0);
+console.log(total);
+
+
+const studentScores = [
+   { name:'Alice',score: 85 },
+   {name : 'Bob' , score: 92},
+   {name :'Charlie' ,score: 68},
+   {name : 'David', score: 55},
+   {name: 'Eve', score:78},
+];
+ function getPassingNames(studentScores){
+    // filter คนทื่คะแนนมากกว่า 70 เก็บใน result
+ let  result =  studentScores.filter( studentScores => studentScores.score>70) 
+// แปลงชื่อของนักเรียน เป็นตัว ใหญ่ทั้งหมด
+ result= result.map(a => a.name.toUpperCase())
+   
+  return result
+
+}
+
+
+const passingNames = getPassingNames(studentScores);
+console.log(passingNames);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const students = [
+  { id: 66500102, name: "Suda", gpa: 2.5 },
+  { id: 66500555, name: "ada", gpa: 2.8 },
+  { id: 66500589, name: "pornchai", gpa: 3.25 },
+  { id: 66500104, name: "Pornsak", gpa: 3.8 },
+]
+
+students.sort((std,std2) =>  std.name.localeCompare( std2.name)) // เรียงได้แม้ไม่ต้องเรียง toUpperCase 0r toLowerCase ไม่มี case Sensitive
+
+console.log(students)
